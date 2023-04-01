@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+{% block title %}Upload Page
+{% endblock %}
+
+{% block content %}
+<div style="padding: 40px;">
+
+<form action="{% url 'category:upload' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+</form>
+    <div style="padding: 20px"></div>
+<div onload="init()">
+  <label for="formFileLg" class="form-label">CSV 파일 추가</label>
+  <input class="form-control form-control-lg" id="formFileLg" type="file" accept=".csv"/>
+    <div style="padding: 10px"></div>
+  <a class="btn btn-primary" href="{% url 'category:loading' %}" role="button" style="float: right">등록하기</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script><script type="text/javascript" src="{% static 'upload/csvtojson.js' %}"></script>
+<script type="text/javascript" src="{% static '/upload/csvtojson.js' %}"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</div>
+{% endblock %}
