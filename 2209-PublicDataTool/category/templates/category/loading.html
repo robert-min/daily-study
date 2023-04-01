@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Loading Page
+
+{% endblock %}
+
+{% block content %}
+<!--    <div class="input-group mb-3">-->
+<!--      <input type="text" class="form-control" placeholder="데이터 명을 입력하세요(Only English)" aria-label="Recipient's username" aria-describedby="button-addon2">-->
+<!--      <button class="btn btn-outline-secondary" type="button" id="button-addon2">설정하기</button>-->
+<!--    </div>-->
+    <a class="btn btn-primary" href="{% url 'category:tool_all' %}" role="button">홈화면으로 이동하기</a>
+{% endblock %}

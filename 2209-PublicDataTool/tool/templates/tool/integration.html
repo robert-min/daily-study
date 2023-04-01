@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Integration Page
+{% endblock %}
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#fileInput").on('change', function(){  // 값이 변경되면
+		if(window.FileReader){  // modern browser
+			var filename = $(this)[0].files[0].name;
+		} else {  // old IE
+ 			var filename = $(this).val().split('/').pop().split('\\').pop();  // 파일명만 추출
+		}
+
+ 		// 추출한 파일명 삽입
+		$("#userfile").val(filename);
+	});
+});
+</script>
+
+<label for="formFileLg" class="form-label">Large file input example</label>
+<input class="form-control form-control-lg" id="formFileLg" type="file" />
+
+
+{% endblock %}
