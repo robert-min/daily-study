@@ -1,0 +1,704 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>도전을 즐기며, 경험을 기록하는 개발자 김민준입니다.</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9f6e9718-5d71-4aa2-9664-f429230ebdcb" class="page sans"><header><h1 class="page-title">도전을 즐기며, 경험을 기록하는 개발자 김민준입니다.</h1><p class="page-description"></p></header><div class="page-body"><p id="52c44432-dfbe-43a6-8b38-2a2f7cb048bb" class="">
+</p><h2 id="3aa19128-25c9-42b3-9bf6-374b47615f29" class="block-color-teal_background">✔️ Introduction</h2><p id="4fafc2a8-9f0c-49e2-a308-8ad01e0f67c0" class="">
+</p><div id="a4526680-df61-4259-8646-23033c406662" class="column-list"><div id="5412829c-cf60-4149-aa9c-c835fad0231b" style="width:50%" class="column"><figure id="1b89bbf6-84d4-4154-a01e-4020adba1625" class="image"><a href="img/Untitled.jpeg"><img style="width:1386px" src="img/Untitled.jpeg"/></a></figure><p id="6d594d75-bdb8-4517-b874-0d874c562a76" class="">
+</p></div><div id="174ce8eb-05bf-47a9-bd33-3f385c27d115" style="width:50%" class="column"><h2 id="1e1525da-5ff8-4bf2-97cd-8013754b86df" class="">김민준 / Robert</h2><h3 id="503e669a-db56-4eb2-a06d-c9ce9d683c02" class=""><mark class="highlight-yellow_background">Contact</mark></h3><p id="789ea396-2377-4805-927a-e1bc0e16963c" class="">Email : robertmin522@gmail.com</p><p id="f60bb1b8-1471-447d-9e76-d7225c3dbb7f" class="">Phone : 010.8892.1870</p><hr id="2ae57d40-65fc-49e9-b569-9daaae6e7dbb"/><h3 id="cdcfb936-1c7a-4940-8393-b234765a6084" class=""><mark class="highlight-yellow_background">Channel</mark></h3><p id="8b5a0f28-07a2-4e08-a323-10d6ec2d90f1" class="">Github : <mark class="highlight-blue"><a href="https://github.com/robert-min">Link</a></mark><mark class="highlight-blue">!!</mark></p><p id="b90aa51f-0b0e-4b3c-9c7e-a804e229c799" class="">Github Blog : <mark class="highlight-blue"><a href="https://github.com/robert-min/dev-blog/issues?q=is%3Aissue+is%3Aclosed">Link</a></mark><mark class="highlight-blue">!!</mark></p><p id="1a69c245-3dfc-4699-becd-369e56b43614" class="">Notion Blog : <mark class="highlight-blue"><a href="https://www.notion.so/d8d975e7926e4f9dafe166311685a801?pvs=21">Link</a></mark><mark class="highlight-blue">!!</mark></p><p id="c75f0993-7a18-42b9-9ff8-3990cdc1e10f" class="">
+</p></div></div><p id="efa2e176-9aba-4046-81f9-a6b455d642ec" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="89e3d64c-a959-4766-9e9c-571f571c6cb5"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">✔︎  학생 스타트업을 운영하면서 데이터의 가치에 매력을 느껴 데이터 개발자를 목표로 공부하고 있습니다.
+✔︎  데이터와 관련된 문제를 정의하고 이를 해결하는 적절한 기술을 찾는 것에 관심이 많습니다.
+✔︎  새로운 것에 도전을 통해 배운 것을 Github와 Notion에 경험을 기록하고 있습니다.</div></figure><p id="29ef9812-29b8-4f4b-96e0-78b609dc9ee8" class="">
+</p><h2 id="0e96b39b-2e5b-4619-8006-b0e7e5c53f42" class="block-color-red_background">📢 Self PR</h2><h3 id="155221ba-2a60-4c1a-a197-5e0850bde763" class=""><mark class="highlight-yellow_background">🖥  사내 데이터 플랫폼 서버 개발 및 운영 경험</mark></h3><ul id="5d03d19a-a646-4eb8-a7ad-d41b6a88f39f" class="bulleted-list"><li style="list-style-type:disc">네이버웹툰 DataOps Engineer로 사내 하둡 데이터 플랫폼을 기반한 분석 서비스 운영을 위해 인증정보시스템 백엔드 서버 개발 업무를 진행했습니다.</li></ul><ul id="cefccb25-0860-4a01-9816-0559bdff1693" class="bulleted-list"><li style="list-style-type:disc">인증정보시스템 내 기밀정보 저장을 위해 암호화 프로세스를 기획했으며, 캐싱 적용을 통해 성능 개선에 기여했습니다.</li></ul><ul id="c3bc224f-8399-4dc9-92f1-cac2f886775f" class="bulleted-list"><li style="list-style-type:disc">Superset 운영 자동화를 위해 Kubernetes API 서버를 구축을 통해 Superset 인스턴스 생성, 삭제, 버전 업데이트 기능을 제공하여 기존에 서비스 운영을 위해 사용된 시간과 리소스에 절약에 기여했습니다.</li></ul><ul id="95a527d4-b055-4188-9f4a-caae0d3b318c" class="bulleted-list"><li style="list-style-type:disc">개발과정에 단위테스트 적용 및 Github Action을 사용하여 코드 PR 시 자동으로 테스트 할 수 있는 안정적인 CI 파이프라인을 구축했습니다.</li></ul><ul id="2d63b3d4-7e04-44ba-a6ff-ada14f40101c" class="bulleted-list"><li style="list-style-type:disc">배포 전 부하 테스트를 통해 서비스 성능을 확인하였으며 실제 사내 리얼망 서버에 배포 및 운영하여 장애대응 등의 운영과정에 발생하는 업무를 경험했습니다.</li></ul><p id="a3333605-89fa-4041-ab2b-4474bcb8f1a6" class="">
+</p><h3 id="54f00fa7-0ebe-4a2b-b588-918beeb5afd8" class=""><mark class="highlight-yellow_background">💡 오픈소스 기반 데이터 플랫폼 구축 경험</mark></h3><ul id="090cee89-9b77-4db1-95d0-e4754c9f9b02" class="bulleted-list"><li style="list-style-type:disc">게임 회사 데이터 인프라팀 Data Engineer로서 쿠버네티스상에 Hadoop 기반의 빅데이터 플랫폼 구축 경험을 통해 데이터 플랫폼의 기반이 되는 Hadoop 기술에 대한 이해를 높일 수 있었습니다.</li></ul><ul id="b695979b-2463-40ea-b198-5104f2167b9e" class="bulleted-list"><li style="list-style-type:disc">빅데이터 플랫폼에 서비스 계정 단위의 Kerberos 보안적용을 통해 안정적인 빅데이터 플랫폼 구축을 경험했습니다.</li></ul><ul id="e6234e0a-8b5e-4a97-afd8-9cef2d6e2ce3" class="bulleted-list"><li style="list-style-type:disc">데이터 처리를 위한 다양한 기술을 경험하기 위해 Kafka, Spark, Airflow 등을 학습하고 이를 개인프로젝트에 적용하여 대용량 데이터 처리 파이프라인 구축을 경험했습니다.</li></ul><p id="7da0f77d-aef8-4b62-a199-fe506d5d56fe" class="">
+</p><h3 id="815746ab-2fb0-4ba5-8e5c-075f5f57ab75" class=""><mark class="highlight-yellow_background">🙋🏻‍♂️ 문제해결을 위한 커뮤니케이션 능력 및 유연한 사고</mark></h3><ul id="0251cb0a-0929-4b0e-8dea-48253a2492e6" class="bulleted-list"><li style="list-style-type:disc">스타트업 창업을 통해 회사 대표, 기획자, 데이터 분석가를 지나 현재 데이터 엔지니어까지 다양한 직무 경험을 통해 여러 직군의 구성원분들과 상대방의 입장을 이해하고 커뮤니케이션에 강점이 있습니다.</li></ul><ul id="74e7c4ae-748f-4c17-9ea6-352baf94b70d" class="bulleted-list"><li style="list-style-type:disc">문제해결에 몰입하여 이를 해결하는 다양한 방법을 찾기 위해 기술 리서치를 통한 기술적 해결 방법 고민하는 것은 물론, 기술이 아닌 운영, 정책 등 더 효과적인 해결책이 없는지 고민하고 관련 구성원과 커뮤니케이션을 통해 문제해결에 최적의 해결책을 찾는 부분에 강점이 있습니다.</li></ul><p id="a6a8f179-f7ec-4740-b6ca-7f377dfe1b59" class="">
+</p><h3 id="8b4000d4-1846-42fa-9e39-61f5a081f1a3" class=""><mark class="highlight-yellow_background">📈 빠른 성장을 위한 끊임없는 노력</mark></h3><ul id="f7f6fa27-5133-466c-8f97-0b8b8864dd81" class="bulleted-list"><li style="list-style-type:disc">데이터 개발자를 목표로 약 2년이라는 짧은 시간 동안 그 누구보다도 빠르게 성장하며, 저의 가치를 증명해 내고 있습니다.</li></ul><ul id="fa085797-e4ef-4b8d-9033-0d1d677efa7b" class="bulleted-list"><li style="list-style-type:disc">문제 해결에 더 효과적인 해결 방법을 고민하기 위해 기술적 Background를 넓히고자 평일 저녁, 주말 모두 개인 성장을 위해 노력합니다.</li></ul><ul id="8b43b554-ae3d-472f-841c-79a4a2d29874" class="bulleted-list"><li style="list-style-type:disc">최근에는 하둡 기반의 데이터 처리 오픈소스 활용을 위해 사용한 Python뿐만 아니라 서버간 통신, 멀티쓰레드 활용에 강점이 있는 Golang과 gRPC를 공부하여 언제든 필요할 시 사용할 수 있도록 기술적 성장을해 나가고 있습니다.</li></ul><p id="5bdd0e80-43d7-46df-9766-a6512ec57d7c" class="">
+</p><h2 id="630922fd-b80b-4cc9-9737-7807a2b4291f" class="block-color-blue_background">💼 Career</h2><h3 id="fb621425-0fc9-4a32-9aa1-73ebf6be169e" class="">📌  네이버 웹툰 - DataOps Enginner</h3><ul id="59370a6a-2cd8-40cc-b09d-2263baf2542f" class="bulleted-list"><li style="list-style-type:disc">2023.01 ~ (재직)</li></ul><ul id="dfe40212-341f-471f-8076-7932aa43db4a" class="bulleted-list"><li style="list-style-type:disc">사내 서비스 인증정보시스템 개발</li></ul><ul id="0913d79c-6990-415c-8f85-7283a55f021e" class="bulleted-list"><li style="list-style-type:disc">Superset 운영 자동화</li></ul><ul id="69520c39-dfbe-4bc0-8c28-a61ce3c33cd5" class="bulleted-list"><li style="list-style-type:disc">주요 업무 내용<ul id="c570e7e6-9cb4-4b83-a7a7-940c5d675c81" class="bulleted-list"><li style="list-style-type:disc">인증정보시스템 API 서버 개발(Flask)</li></ul><ul id="5cb549a8-ed74-44b0-abd2-677b5a8b4e1c" class="bulleted-list"><li style="list-style-type:circle">인증정보 암호화 기능 개발</li></ul><ul id="67b3e1eb-944a-4b55-8d3f-0bf5b0156bf7" class="bulleted-list"><li style="list-style-type:circle">Hadoop Kerberos Keytab API 개발</li></ul><ul id="a9cc19b8-e216-419d-87eb-f5281d46b674" class="bulleted-list"><li style="list-style-type:circle">사내 리얼망 배포(k8s Helm Chart) 및 운영</li></ul><ul id="4fa90d6e-8ec5-4230-887e-76ccd6f48bc9" class="bulleted-list"><li style="list-style-type:circle">Superset 운영 자동화 API 개발</li></ul></li></ul><h3 id="3a3a9abb-410d-4f57-b003-7019e57f9372" class="">📌  스마일게이트 스토브 - Data Enginner </h3><ul id="a8a17f6f-4180-4be4-ac98-6d59a23190a2" class="bulleted-list"><li style="list-style-type:disc">2022.09 ~ 2022.12</li></ul><ul id="1075b71d-07d6-474a-a179-23196934ceae" class="bulleted-list"><li style="list-style-type:disc">빅데이터 보안 플랫폼 구축<ul id="b8cf0cc2-24ad-48db-beef-ce62df0b08c0" class="bulleted-list"><li style="list-style-type:circle">기술 : Hadoop, Kerberos, Docker, k8s</li></ul></li></ul><ul id="741516a1-83c9-445d-b381-b88ab264c371" class="bulleted-list"><li style="list-style-type:disc">주요 업무 내용<ul id="7ba32f6a-e7e3-4b4f-be51-cc774425157c" class="bulleted-list"><li style="list-style-type:circle">쿠버네티스 상 빅데이터 플랫폼 구축</li></ul><ul id="d461487e-3df9-4af8-a463-c9cc2773f1a8" class="bulleted-list"><li style="list-style-type:circle">빅데이터 플랫폼 Kerberos 보안 적용</li></ul></li></ul><h3 id="d83463a9-605c-4a6c-b25f-6b6c802035b1" class="">📌  데이터사이언스랩 - Bankend Engineer</h3><ul id="9dacd77c-9e94-4185-8c11-0bc05964d56a" class="bulleted-list"><li style="list-style-type:disc">2022.07 ~ 2022.09</li></ul><ul id="eb127a5f-814f-4674-a342-356307b4787b" class="bulleted-list"><li style="list-style-type:disc">데이터 분석 도구 개발<ul id="5380a98e-980e-4946-b942-7d1bdd7d8b12" class="bulleted-list"><li style="list-style-type:circle">기술 : Django, Elasticsearch</li></ul></li></ul><ul id="4ef16b7b-ae84-4860-ab04-9682b70d7d86" class="bulleted-list"><li style="list-style-type:disc">주요 업무 내용<ul id="b781751e-7550-4ce9-bf8b-ab5505e613ce" class="bulleted-list"><li style="list-style-type:circle">SNS 데이터 분석 도구 개발</li></ul></li></ul><p id="a686ba9c-3814-43b8-8be1-b7454a1a969c" class="">
+</p><h2 id="5aa27cda-c4e2-4bc1-bdc7-f6709b5b2011" class="block-color-purple_background">🧑‍💻 Dev Projects</h2><h3 id="43f417bd-4573-43bf-8255-7b8edaad19f9" class="">📌  nGrinder를 활용한 Python vs Go API 서버 성능 부하테스트 <mark class="highlight-blue"><a href="https://github.com/robert-min/performance_go_python_api">Link</a></mark><mark class="highlight-blue">!!</mark></h3><ul id="d24133f1-103c-439e-9a05-2b393893a947" class="bulleted-list"><li style="list-style-type:disc">Flask, Go, Docker, nGrinder, MySQL
+HTTP 요청을 받는 서버, DB를 처리하는 서버를 Python Flask와 Go로 각각 서버를 구축하여 nGrinder를 활용해 성능 부하 테스트를 진행했습니다. 1차 테스트 결과 Python이 Gunicorn을 사용하여 동시 요청을 효과적으로 처리하여 Go보다 성능이 뛰어남을 확인했습니다. 다만, Go의 경우 기본적인 세팅만 진행했지만, 예상보다 높은 TPS를 보여 동시성 처리를 위한 기능 개선을 진행한 2차 테스트를 진행하면 Python 서버보다 높은 성능을 보일 것으로 확인했습니다.</li></ul><p id="2fed8dfa-31d9-4dd0-bcef-13f630b7a69d" class="">
+</p><h3 id="5a7f1717-b031-46f1-b873-9691a32f6fa7" class="">📌  빅데이터 보안 플랫폼 구축 <mark class="highlight-blue"><a href="https://url.kr/nd3jtb">Link</a></mark><mark class="highlight-blue">!!</mark></h3><ul id="14bd0555-8bfb-4303-a27f-6bf916e5f7fb" class="bulleted-list"><li style="list-style-type:disc">Hadoop, Kerberos, AWS(EC2)
+빅데이터 플랫폼 구축 및 보안 적용 프로젝트를 진행했습니다. 빅데이터 플랫폼은 사내에서 제공되는 서비스이지만, 특정 사용자의 잘못된 접근으로 전체 서비스에 영향을 줄 수 있는 문제가 있습니다. 이를 해결하고자 Kerberos를 활용한 보안 적용을 구현했습니다. HDFS, yarn 등 서비스 단위의 인증 구현을 완료하여 빅데이터 보안 플랫폼 구축을 완료했습니다.</li></ul><p id="2f0995cd-f703-47f6-a3ae-bd21d2b8d2b4" class="">
+</p><h3 id="744c1db0-89a4-4b41-8366-e47a15e923a4" class="">📌  쿠버네티스 기반 빅데이터 플래폼 구축 <mark class="highlight-blue"><a href="https://github.com/robert-min/dev-blog/issues?q=is%3Aissue+is%3Aclosed+label%3AHadoop-k8s">Link</a></mark><mark class="highlight-blue">!!</mark></h3><ul id="3199549c-687e-4914-a1fd-e14392358954" class="bulleted-list"><li style="list-style-type:disc">Hadoop, Hive, HBase, Kubernetes, Docker
+쿠버네티스 기반의 하둡 빅데이터 플랫폼 구축 프로젝트를 진행했습니다. 가상 서버 하둡 분산 플랫폼 구축 시 구축 및 개선 과정에 많은 시간이 소요됩니다. 이 문제를 해결하기위해 쿠버네티스 상에 빅데이터 플랫폼 구축 프로젝트를 진행했습니다.</li></ul><p id="d932fa69-e039-4992-b250-8dbaf27de9b3" class="">
+</p><h3 id="f4ecbe23-cdd7-43de-80eb-9fd4e2bfc538" class="">📌  [졸업논문] 기계학습 접근법을 통한 RC 보-기둥 접합부의 손상 수준 예측 모델 개발 <mark class="highlight-blue"><a href="https://url.kr/ft6bsr">Link</a></mark><mark class="highlight-blue">!!</mark></h3><ul id="a2f409b5-0e68-4527-8055-aa8e75a9e74e" class="bulleted-list"><li style="list-style-type:disc">Pandas, Scikit-learn, Seaborn
+지진하중으로 인한 건물의 손상 수준 예측은 건축 구조에서 매우 중요합니다. 기존의 경우 실험 데이터를 기반한 경험식으로 손상 수준을 예측하였지만, 제한된 실험 환경에서 정확도 높은 예측이 어렵습니다. 졸업논문으로 머신러닝을 활용한 손상 수준 예측 모델을 제안하였습니다.</li></ul><p id="62b5109d-c420-4272-9de0-07671314fb11" class="">
+</p><h3 id="fa5827cc-3976-4e55-b6b5-205fddca4a86" class="">📌  커플 데이터 장소 추천 챗봇 <mark class="highlight-blue"><a href="https://github.com/robert-min/dev-blog/tree/main/2204-TodayDating">Link</a></mark><mark class="highlight-blue">!!</mark></h3><ul id="452fe1ee-c351-40de-ab08-75fd05964483" class="bulleted-list"><li style="list-style-type:disc">Flask, MySQL, Spark, Kafka
+네이버 검색 API와 카카오 챗봇를 통해 커플 데이트 장소를 검색하는 서비스를 구축했습니다. 수집한 데이터를 S3에 저장 후 변환과정을 거쳐 RDS에 저장하는 데이터 파이프라인을 구축했습니다. 또한 이 과정에서 Spark를 활용한 데이터 처리와 장소 데이터, 블로그 데이터를 분산 처리하기 위해 Kafka를 활용했습니다.</li></ul><p id="8ae2ea3d-d3f3-473d-a326-1f29f96dd6e7" class="">
+</p><h2 id="a87c4acc-1b2b-4e6f-a6a2-5414699726ee" class="block-color-gray_background">👬 Etc Projects</h2><div id="722bb013-e848-4df5-9c90-2c031dc8ef8e" class="column-list"><div id="dde47d9e-a125-4849-8d5a-ef1e74718bd9" style="width:62.5%" class="column"><h3 id="be816edc-3e65-4bd2-9dfb-8e6a04517704" class="">📌  Zero Plastic(카페거리)</h3><ul id="076afabc-1feb-4cf7-95b0-da64525f4657" class="bulleted-list"><li style="list-style-type:disc">With Corona 카페 정보 플랫폼</li></ul><ul id="fb7468ec-652f-469c-a78c-d572569e9b1f" class="bulleted-list"><li style="list-style-type:disc">[해, 커리어] 원티드 해커톤<ul id="5beb693d-1a3c-42ef-8a16-66a5a5e6ed49" class="bulleted-list"><li style="list-style-type:circle">팀 대표, 서비스 기획 참여</li></ul><ul id="82a3d5c6-da4e-4a44-a3a8-e83aec8565fb" class="bulleted-list"><li style="list-style-type:circle">해커톤 본선 진출</li></ul><p id="fb0a5cd3-e87d-4747-abcc-5e6aba7a26a1" class="">
+</p></li></ul></div><div id="34415c06-b118-4dd3-8b27-c6a8c7e00455" style="width:37.5%" class="column"><figure id="a3228eb3-f9c7-46ea-aeec-f174c5963966" class="image"><a href="img/Untitled.png"><img style="width:192px" src="img/Untitled.png"/></a></figure></div></div><p id="29fd43ae-a7b8-433d-89d1-0d57f3855019" class="">
+</p><div id="1cdf2b15-fa51-4ad9-9193-5a9835eff8d6" class="column-list"><div id="008f79ec-010c-4260-839c-cc5a0fda62d5" style="width:62.5%" class="column"><h3 id="6da7dff8-1795-4dde-ae7c-52c299e1024a" class="">📌  Social Ground</h3><ul id="11382057-96f4-4696-820c-78b0ab4ae4ee" class="bulleted-list"><li style="list-style-type:disc">사회적 가치 활동 인증 앱 서비스</li></ul><ul id="373aac0c-5e74-432a-b8d3-0dc7cebcacce" class="bulleted-list"><li style="list-style-type:disc">학생 스타트업(대표, 서비스 기획)<ul id="9f3a2a34-986e-4100-ab4e-3af91096b765" class="bulleted-list"><li style="list-style-type:circle">학생 스타트업 후속 프로젝트</li></ul><ul id="012ebfaa-f00b-4187-b8d9-c33b63ec1a33" class="bulleted-list"><li style="list-style-type:circle">한국사회적기업진흥원 소셜벤처 대학동아리 선정</li></ul><ul id="b98d4928-c4b0-4726-adcb-e47b6f6d9572" class="bulleted-list"><li style="list-style-type:circle">서비스 개발 진행 중 종료</li></ul></li></ul><p id="f9477649-b181-47ff-88d1-da949a8d0ccd" class="">
+</p></div><div id="ddf14651-bbdb-4862-a88e-bc91fb09dcab" style="width:37.49999999999999%" class="column"><figure id="a4744f59-9be7-439c-ba31-bfcd019ab42a" class="image"><a href="img/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-29_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_2.45.02.png"><img style="width:192px" src="img/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-29_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_2.45.02.png"/></a></figure></div></div><div id="15355709-0f48-45b6-bbd4-f733f50f7004" class="column-list"><div id="f51f508e-17c2-40b4-b89f-f7a5f3436956" style="width:62.5%" class="column"><h3 id="8b373925-dda5-40eb-a514-08ba8f2e95f5" class="">📌  가치를 더함</h3><ul id="0669ade5-0020-40da-bf1e-92c609861d54" class="bulleted-list"><li style="list-style-type:disc">사회적 가치를 가진 활동 정보를 반응형 웹앱 서비스에 제공하는 서비스</li></ul><ul id="77d5d462-fdd3-4ee8-97d6-11cd83ffdccb" class="bulleted-list"><li style="list-style-type:disc">학생 스타트업(대표, 서비스 기획)<ul id="c844b117-afd3-4491-a41c-7d9882520928" class="bulleted-list"><li style="list-style-type:circle">회사 설립(더함)</li></ul><ul id="1c15b439-f832-41c7-b100-37bd574869b5" class="bulleted-list"><li style="list-style-type:circle">정부지원사업 예비창업패키지 선정(4,000만원)</li></ul><ul id="bf0c1c44-1eb0-4cef-97a7-16e3b26b59da" class="bulleted-list"><li style="list-style-type:circle">서비스 배포 및 운영</li></ul><p id="4703ff57-f03e-4096-9b24-5a8035e98724" class="">
+</p></li></ul></div><div id="14e9f85b-0fe4-4ee9-ac0c-eb8a85f869fa" style="width:37.49999999999999%" class="column"><figure id="0bc24e73-3848-4227-9363-4a3d250954db" class="image"><a href="img/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-29_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_2.36.04.png"><img style="width:192px" src="img/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-04-29_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_2.36.04.png"/></a></figure></div></div><p id="bed1e054-1b31-446f-b431-a9018ca33899" class="">
+</p></div></article></body></html>
